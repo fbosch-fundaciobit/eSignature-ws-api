@@ -1,26 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="SoapDocumentValidationServiceService" targetNamespace="http://validation.dss.esig.europa.eu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://validation.dss.esig.europa.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://validation.dss.esig.europa.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SoapDocumentValidationServiceImplService" targetNamespace="http://validation.dss.esig.europa.eu/">
   <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://dss.esig.europa.eu/validation/diagnostic" xmlns:ns2="http://dss.esig.europa.eu/validation/simple-report" xmlns:ns3="http://dss.esig.europa.eu/validation/detailed-report" xmlns:tns="http://validation.dss.esig.europa.eu/" elementFormDefault="unqualified" targetNamespace="http://validation.dss.esig.europa.eu/" version="1.0">
-<xs:import namespace="http://dss.esig.europa.eu/validation/diagnostic"/>
-<xs:import namespace="http://dss.esig.europa.eu/validation/simple-report"/>
-<xs:import namespace="http://dss.esig.europa.eu/validation/detailed-report"/>
-<xs:element name="WSReportsDTO" type="tns:wsReportsDTO"/>
-<xs:element name="validateSignature" type="tns:validateSignature"/>
-<xs:element name="validateSignatureResponse" type="tns:validateSignatureResponse"/>
-<xs:complexType name="validateSignature">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://validation.dss.esig.europa.eu/" xmlns:ns3="http://dss.esig.europa.eu/validation/detailed-report" xmlns:ns2="http://dss.esig.europa.eu/validation/simple-report" xmlns:ns1="http://dss.esig.europa.eu/validation/diagnostic" elementFormDefault="unqualified" targetNamespace="http://validation.dss.esig.europa.eu/" version="1.0">
+
+  <xs:import namespace="http://dss.esig.europa.eu/validation/diagnostic"/>
+
+  <xs:import namespace="http://dss.esig.europa.eu/validation/simple-report"/>
+
+  <xs:import namespace="http://dss.esig.europa.eu/validation/detailed-report"/>
+
+  <xs:element name="WSReportsDTO" type="tns:wsReportsDTO"/>
+
+  <xs:element name="validateSignature" type="tns:validateSignature"/>
+
+  <xs:element name="validateSignatureResponse" type="tns:validateSignatureResponse"/>
+
+  <xs:complexType name="validateSignature">
     <xs:sequence>
       <xs:element minOccurs="0" name="dataToValidateDTO" type="tns:dataToValidateDTO"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="dataToValidateDTO">
+
+  <xs:complexType name="dataToValidateDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="originalDocument" type="tns:remoteDocument"/>
       <xs:element minOccurs="0" name="policy" type="tns:remoteDocument"/>
       <xs:element minOccurs="0" name="signedDocument" type="tns:remoteDocument"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="remoteDocument">
+
+  <xs:complexType name="remoteDocument">
     <xs:sequence>
       <xs:element minOccurs="0" name="bytes" type="xs:base64Binary"/>
       <xs:element minOccurs="0" name="digestAlgorithm" type="tns:digestAlgorithm"/>
@@ -28,24 +36,28 @@
       <xs:element minOccurs="0" name="name" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="mimeType">
+
+  <xs:complexType name="mimeType">
     <xs:sequence>
       <xs:element minOccurs="0" name="mimeTypeString" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="validateSignatureResponse">
+
+  <xs:complexType name="validateSignatureResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="WSReportsDTO" type="tns:wsReportsDTO"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="wsReportsDTO">
+
+  <xs:complexType name="wsReportsDTO">
     <xs:sequence>
       <xs:element minOccurs="0" ref="ns1:diagnosticData"/>
       <xs:element minOccurs="0" ref="ns2:simpleReport"/>
       <xs:element minOccurs="0" ref="ns3:detailedReport"/>
     </xs:sequence>
   </xs:complexType>
-<xs:simpleType name="digestAlgorithm">
+
+  <xs:simpleType name="digestAlgorithm">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SHA1"/>
       <xs:enumeration value="SHA224"/>
@@ -61,9 +73,11 @@
       <xs:enumeration value="MD5"/>
     </xs:restriction>
   </xs:simpleType>
+
 </xs:schema>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dss.esig.europa.eu/validation/simple-report" elementFormDefault="qualified" targetNamespace="http://dss.esig.europa.eu/validation/simple-report" version="1.0">
-<xs:element name="SimpleReport">
+
+  <xs:element name="SimpleReport">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Policy">
@@ -113,7 +127,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:element name="simpleReport">
+
+  <xs:element name="simpleReport">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Policy">
@@ -163,27 +178,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:complexType name="CertificateChain">
+
+  <xs:complexType name="CertificateChain">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="Certificate" type="tns:Certificate"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Certificate">
+
+  <xs:complexType name="Certificate">
     <xs:sequence>
       <xs:element name="id" type="xs:string"/>
       <xs:element name="qualifiedName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="SignatureLevel">
+
+  <xs:complexType name="SignatureLevel">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="description" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
 </xs:schema>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dss.esig.europa.eu/validation/diagnostic" elementFormDefault="qualified" targetNamespace="http://dss.esig.europa.eu/validation/diagnostic" version="1.0">
-<xs:element name="DiagnosticData">
+
+  <xs:element name="DiagnosticData">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DocumentName" type="xs:string"/>
@@ -214,7 +234,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:element name="diagnosticData">
+
+  <xs:element name="diagnosticData">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DocumentName" type="xs:string"/>
@@ -245,7 +266,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:complexType name="ContainerInfo">
+
+  <xs:complexType name="ContainerInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="ContainerType" type="xs:string"/>
       <xs:element minOccurs="0" name="ZipComment" type="xs:string"/>
@@ -267,7 +289,8 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="ManifestFile">
+
+  <xs:complexType name="ManifestFile">
     <xs:sequence>
       <xs:element minOccurs="0" name="Filename" type="xs:string"/>
       <xs:element minOccurs="0" name="SignatureFilename" type="xs:string"/>
@@ -280,7 +303,8 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Signature">
+
+  <xs:complexType name="Signature">
     <xs:sequence>
       <xs:element name="SignatureFilename" type="xs:string"/>
       <xs:element minOccurs="0" name="ParentId" type="xs:string"/>
@@ -342,13 +366,15 @@
     <xs:attribute name="Id" type="xs:string" use="required"/>
     <xs:attribute name="CounterSignature" type="xs:boolean"/>
   </xs:complexType>
-<xs:complexType name="StructuralValidation">
+
+  <xs:complexType name="StructuralValidation">
     <xs:sequence>
       <xs:element minOccurs="0" name="Valid" type="xs:boolean"/>
       <xs:element minOccurs="0" name="Message" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="BasicSignature">
+
+  <xs:complexType name="BasicSignature">
     <xs:sequence>
       <xs:element minOccurs="0" name="EncryptionAlgoUsedToSignThisToken" type="xs:string"/>
       <xs:element minOccurs="0" name="KeyLengthUsedToSignThisToken" type="xs:string"/>
@@ -360,7 +386,8 @@
       <xs:element name="SignatureValid" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="SigningCertificate">
+
+  <xs:complexType name="SigningCertificate">
     <xs:sequence>
       <xs:element minOccurs="0" name="AttributePresent" type="xs:boolean"/>
       <xs:element minOccurs="0" name="DigestValuePresent" type="xs:boolean"/>
@@ -370,7 +397,8 @@
     </xs:sequence>
     <xs:attribute name="Id" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="SignatureProductionPlace">
+
+  <xs:complexType name="SignatureProductionPlace">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" type="xs:string"/>
       <xs:element minOccurs="0" name="City" type="xs:string"/>
@@ -379,7 +407,8 @@
       <xs:element minOccurs="0" name="CountryName" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="CertifiedRole">
+
+  <xs:complexType name="CertifiedRole">
     <xs:sequence>
       <xs:element name="CertifiedRole" type="xs:string"/>
       <xs:element name="NotAfter" type="xs:dateTime"/>
@@ -387,7 +416,8 @@
     </xs:sequence>
     <xs:attribute name="Category" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="Policy">
+
+  <xs:complexType name="Policy">
     <xs:sequence>
       <xs:element name="Id" type="xs:string"/>
       <xs:element minOccurs="0" name="Url" type="xs:string"/>
@@ -400,13 +430,15 @@
       <xs:element minOccurs="0" name="DigestAlgorithmsEqual" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="DigestAlgoAndValue">
+
+  <xs:complexType name="DigestAlgoAndValue">
     <xs:sequence>
       <xs:element name="DigestMethod" type="xs:string"/>
       <xs:element name="DigestValue" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Timestamp">
+
+  <xs:complexType name="Timestamp">
     <xs:sequence>
       <xs:element name="ProductionTime" type="xs:dateTime"/>
       <xs:element name="SignedDataDigestAlgo" type="xs:string"/>
@@ -441,14 +473,16 @@
     <xs:attribute name="Id" type="xs:string" use="required"/>
     <xs:attribute name="Type" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="TimestampedObject">
+
+  <xs:complexType name="TimestampedObject">
     <xs:sequence>
       <xs:element minOccurs="0" name="DigestAlgoAndValue" type="tns:DigestAlgoAndValue"/>
     </xs:sequence>
     <xs:attribute name="Id" type="xs:string"/>
     <xs:attribute name="Category" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="SignatureScope">
+
+  <xs:complexType name="SignatureScope">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="name" type="xs:string" use="required"/>
@@ -456,7 +490,8 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-<xs:complexType name="Certificate">
+
+  <xs:complexType name="Certificate">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" name="SubjectDistinguishedName" type="tns:DistinguishedName"/>
       <xs:element maxOccurs="unbounded" name="IssuerDistinguishedName" type="tns:DistinguishedName"/>
@@ -590,28 +625,32 @@
     </xs:sequence>
     <xs:attribute name="Id" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="DistinguishedName">
+
+  <xs:complexType name="DistinguishedName">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="Format" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-<xs:complexType name="OID">
+
+  <xs:complexType name="OID">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="Description" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-<xs:complexType name="CertificatePolicy">
+
+  <xs:complexType name="CertificatePolicy">
     <xs:simpleContent>
       <xs:extension base="tns:OID">
         <xs:attribute name="cpsUrl" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-<xs:complexType name="TrustedServiceProvider">
+
+  <xs:complexType name="TrustedServiceProvider">
     <xs:sequence>
       <xs:element name="TSPName" type="xs:string"/>
       <xs:element minOccurs="0" name="TSPRegistrationIdentifier" type="xs:string"/>
@@ -625,7 +664,8 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="TrustedService">
+
+  <xs:complexType name="TrustedService">
     <xs:sequence>
       <xs:element name="ServiceName" type="xs:string"/>
       <xs:element name="ServiceType" type="xs:string"/>
@@ -656,7 +696,8 @@
       <xs:element minOccurs="0" name="expiredCertsRevocationInfo" type="xs:dateTime"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Revocation">
+
+  <xs:complexType name="Revocation">
     <xs:sequence>
       <xs:element name="Origin" type="xs:string"/>
       <xs:element name="Source" type="xs:string"/>
@@ -711,7 +752,8 @@
     </xs:sequence>
     <xs:attribute name="Id" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:complexType name="TrustedList">
+
+  <xs:complexType name="TrustedList">
     <xs:sequence>
       <xs:element name="CountryCode" type="xs:string"/>
       <xs:element name="Url" type="xs:string"/>
@@ -723,9 +765,11 @@
       <xs:element name="WellSigned" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
+
 </xs:schema>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dss.esig.europa.eu/validation/detailed-report" elementFormDefault="qualified" targetNamespace="http://dss.esig.europa.eu/validation/detailed-report" version="1.0">
-<xs:element name="DetailedReport">
+
+  <xs:element name="DetailedReport">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="Signatures" type="tns:Signature"/>
@@ -735,7 +779,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:element name="detailedReport">
+
+  <xs:element name="detailedReport">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="Signatures" type="tns:Signature"/>
@@ -745,7 +790,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<xs:complexType name="Signature">
+
+  <xs:complexType name="Signature">
     <xs:sequence>
       <xs:element minOccurs="0" name="ValidationProcessBasicSignatures" type="tns:ValidationProcessBasicSignatures"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="ValidationProcessTimestamps" type="tns:ValidationProcessTimestamps"/>
@@ -756,7 +802,8 @@
     <xs:attribute name="Id" type="xs:string" use="required"/>
     <xs:attribute name="CounterSignature" type="xs:boolean"/>
   </xs:complexType>
-<xs:complexType name="ValidationProcessBasicSignatures">
+
+  <xs:complexType name="ValidationProcessBasicSignatures">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -764,13 +811,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ConstraintsConclusion">
+
+  <xs:complexType name="ConstraintsConclusion">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="Constraint" type="tns:Constraint"/>
       <xs:element name="Conclusion" type="tns:Conclusion"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Constraint">
+
+  <xs:complexType name="Constraint">
     <xs:sequence>
       <xs:element name="Name" type="tns:Name"/>
       <xs:element name="Status" type="xs:string"/>
@@ -781,14 +830,16 @@
     </xs:sequence>
     <xs:attribute name="Id" type="xs:string"/>
   </xs:complexType>
-<xs:complexType name="Name">
+
+  <xs:complexType name="Name">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="NameId" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-<xs:complexType name="Conclusion">
+
+  <xs:complexType name="Conclusion">
     <xs:sequence>
       <xs:element name="Indication" type="xs:string"/>
       <xs:element minOccurs="0" name="SubIndication" type="xs:string"/>
@@ -797,7 +848,8 @@
       <xs:element maxOccurs="unbounded" minOccurs="0" name="Infos" type="tns:Name"/>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="Certificate">
+
+  <xs:complexType name="Certificate">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -806,7 +858,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ValidationCertificateQualification">
+
+  <xs:complexType name="ValidationCertificateQualification">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -817,7 +870,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="TLAnalysis">
+
+  <xs:complexType name="TLAnalysis">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -825,7 +879,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ValidationSignatureQualification">
+
+  <xs:complexType name="ValidationSignatureQualification">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -836,7 +891,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ValidationProcessTimestamps">
+
+  <xs:complexType name="ValidationProcessTimestamps">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -846,7 +902,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ValidationProcessLongTermData">
+
+  <xs:complexType name="ValidationProcessLongTermData">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -854,7 +911,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ValidationProcessArchivalData">
+
+  <xs:complexType name="ValidationProcessArchivalData">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -862,14 +920,16 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="FC">
+
+  <xs:complexType name="FC">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ISC">
+
+  <xs:complexType name="ISC">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -878,7 +938,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="CertificateChain">
+
+  <xs:complexType name="CertificateChain">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="ChainItem">
         <xs:complexType>
@@ -890,14 +951,16 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-<xs:complexType name="VCI">
+
+  <xs:complexType name="VCI">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="RFC">
+
+  <xs:complexType name="RFC">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
@@ -905,21 +968,24 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="CV">
+
+  <xs:complexType name="CV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="SAV">
+
+  <xs:complexType name="SAV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="XCV">
+
+  <xs:complexType name="XCV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -928,7 +994,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="SubXCV">
+
+  <xs:complexType name="SubXCV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -939,7 +1006,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="ConstraintsConclusionWithControlTime">
+
+  <xs:complexType name="ConstraintsConclusionWithControlTime">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusion">
         <xs:sequence>
@@ -948,28 +1016,32 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="VTS">
+
+  <xs:complexType name="VTS">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusionWithControlTime">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="PCV">
+
+  <xs:complexType name="PCV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusionWithControlTime">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="PSV">
+
+  <xs:complexType name="PSV">
     <xs:complexContent>
       <xs:extension base="tns:ConstraintsConclusionWithControlTime">
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="BasicBuildingBlocks">
+
+  <xs:complexType name="BasicBuildingBlocks">
     <xs:sequence>
       <xs:element minOccurs="0" name="FC" type="tns:FC"/>
       <xs:element minOccurs="0" name="ISC" type="tns:ISC"/>
@@ -986,7 +1058,8 @@
     <xs:attribute name="Id" type="xs:string" use="required"/>
     <xs:attribute name="Type" type="xs:string" use="required"/>
   </xs:complexType>
-<xs:simpleType name="Status">
+
+  <xs:simpleType name="Status">
     <xs:restriction base="xs:string">
       <xs:enumeration value="OK"/>
       <xs:enumeration value="NOT OK"/>
@@ -995,25 +1068,26 @@
       <xs:enumeration value="WARNING"/>
     </xs:restriction>
   </xs:simpleType>
+
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="validateSignature">
-    <wsdl:part name="parameters" element="tns:validateSignature">
+    <wsdl:part element="tns:validateSignature" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="validateSignatureResponse">
-    <wsdl:part name="parameters" element="tns:validateSignatureResponse">
+    <wsdl:part element="tns:validateSignatureResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="SoapDocumentValidationService">
     <wsdl:operation name="validateSignature">
-      <wsdl:input name="validateSignature" message="tns:validateSignature">
+      <wsdl:input message="tns:validateSignature" name="validateSignature">
     </wsdl:input>
-      <wsdl:output name="validateSignatureResponse" message="tns:validateSignatureResponse">
+      <wsdl:output message="tns:validateSignatureResponse" name="validateSignatureResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="SoapDocumentValidationServiceServiceSoapBinding" type="tns:SoapDocumentValidationService">
+  <wsdl:binding name="SoapDocumentValidationServiceImplServiceSoapBinding" type="tns:SoapDocumentValidationService">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="validateSignature">
       <soap:operation soapAction="" style="document"/>
@@ -1025,9 +1099,9 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="SoapDocumentValidationServiceService">
-    <wsdl:port name="EsignatureValidationWs" binding="tns:SoapDocumentValidationServiceServiceSoapBinding">
-      <soap:address location="http://localhost:8080/services/soap/validation?wsdl"/>
+  <wsdl:service name="SoapDocumentValidationServiceImplService">
+    <wsdl:port binding="tns:SoapDocumentValidationServiceImplServiceSoapBinding" name="SoapDocumentValidationServiceImplPort">
+      <soap:address location="http://localhost:8080/services/soap/validation"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

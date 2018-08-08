@@ -38,7 +38,6 @@
       <url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
     </repository>
 
-
     <repository>
       <id>maven-nuxeo</id>
       <name>Maven Nuxeo Repository</name>
@@ -61,7 +60,6 @@
       <url>https://governib.github.io/maven/maven/</url>
     </repository>
   </repositories>
-
 
   <build>
     <plugins>
@@ -156,7 +154,7 @@
       <build>
         <plugins>
           <!--Java to WSDL Plugin-->
-          <plugin>
+          <!--<plugin>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-java2ws-plugin</artifactId>
             <version>${cxf.version}</version>
@@ -190,7 +188,7 @@
                 </goals>
               </execution>
             </executions>
-          </plugin>
+          </plugin>-->
 
           <!--WSDL to Java Plugin-->
           <plugin>
@@ -249,7 +247,15 @@
       <artifactId>dss-validation-soap-client</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mailapi</artifactId>
+      <version>1.4.3</version>
+    </dependency>
+
   </dependencies>
+
+
 
 
 </project>

@@ -59,43 +59,6 @@
         <plugins>
           <plugin>
             <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-java2ws-plugin</artifactId>
-            <version>2.2.12</version>
-            <executions>
-              <execution>
-                <id>generate-wsdl-esignatureValidation.wsdl</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>java2ws</goal>
-                </goals>
-                <configuration>
-                  <className>eu.europa.esig.dss.validation.SoapDocumentValidationService</className>
-                  <genWsdl>true</genWsdl>
-                  <verbose>true</verbose>
-                  <frontend>jaxws</frontend>
-                  <databinding>jaxb</databinding>
-                  <outputFile>C:\Users\fbosch\Documents\dades\programacio\esignature_ws_api-local/src/main/resources/wsdl/esignatureValidation.wsdl</outputFile>
-                  <argline>-s C:\Users\fbosch\Documents\dades\programacio\esignature_ws_api-local/code -portname EsignatureValidationWs -address http://localhost:8080/services/soap/validation?wsdl</argline>
-                </configuration>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                <version>2.2.12</version>
-                <scope>compile</scope>
-              </dependency>
-              <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-rt-frontend-simple</artifactId>
-                <version>2.2.12</version>
-                <scope>compile</scope>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-codegen-plugin</artifactId>
             <version>2.2.12</version>
             <executions>
@@ -106,13 +69,13 @@
                   <goal>wsdl2java</goal>
                 </goals>
                 <configuration>
-                  <sourceRoot>C:\Users\fbosch\Documents\dades\programacio\esignature_ws_api-local/src/main/java</sourceRoot>
+                  <sourceRoot>C:\Users\fbosch\Documents\dades\programacio\eSignature-ws-api/src/main/java</sourceRoot>
                   <defaultOptions>
                     <autoNameResolution>true</autoNameResolution>
                   </defaultOptions>
                   <wsdlOptions>
                     <wsdlOption>
-                      <wsdl>C:\Users\fbosch\Documents\dades\programacio\esignature_ws_api-local/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
+                      <wsdl>C:\Users\fbosch\Documents\dades\programacio\eSignature-ws-api/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
                       <packagenames>
                         <packagename>org.fundaciobit.esginature.ws.api.v1</packagename>
                       </packagenames>
