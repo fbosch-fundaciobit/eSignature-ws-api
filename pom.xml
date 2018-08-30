@@ -17,7 +17,6 @@
     <cxf.version>2.2.12</cxf.version>
   </properties>
 
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -29,7 +28,6 @@
       </dependency>
     </dependencies> 
   </dependencyManagement>
-
 
   <repositories>  
     <repository>
@@ -208,7 +206,7 @@
                     <wsdlOption>
                       <wsdl>${basedir}/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
                       <packagenames>
-                        <packagename>org.fundaciobit.esginature.ws.api.v1</packagename>
+                        <packagename>org.fundaciobit.pluginsib.validatesignature.esignature.ws</packagename>
                       </packagenames>
                       <!--<serviceName>SoapDocumentValidationService</serviceName>-->
                     </wsdlOption>
@@ -226,7 +224,13 @@
   </profiles>
 
   <dependencies>
-
+  
+    <dependency>
+       <groupId>org.fundaciobit.pluginsib.validatesignature</groupId>  
+       <artifactId>pluginsib-validatesignature-api</artifactId>
+       <version>2.0.0</version>    
+    </dependency> 
+    
     <dependency>  
       <groupId>org.jboss.ws.cxf</groupId>  
       <artifactId>jbossws-cxf-client</artifactId>  
@@ -241,16 +245,43 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+    <!--<dependency>
       <groupId>eu.europa.ec.joinup.sd-dss</groupId>
       <version>5.3.1</version>
       <artifactId>dss-validation-soap-client</artifactId>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mailapi</artifactId>
       <version>1.4.3</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcmail-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bctsp-jdk16</artifactId>
+      <version>1.46</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.java.xades</groupId>
+      <artifactId>jxades</artifactId>
+      <version>0.1.5</version>
     </dependency>
 
   </dependencies>

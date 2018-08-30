@@ -69,15 +69,15 @@
                   <goal>wsdl2java</goal>
                 </goals>
                 <configuration>
-                  <sourceRoot>C:\Users\fbosch\Documents\dades\programacio\eSignature-ws-api/src/main/java</sourceRoot>
+                  <sourceRoot>C:\Users\fbosch\Documents\dades\programacio\esignature-ws-api/src/main/java</sourceRoot>
                   <defaultOptions>
                     <autoNameResolution>true</autoNameResolution>
                   </defaultOptions>
                   <wsdlOptions>
                     <wsdlOption>
-                      <wsdl>C:\Users\fbosch\Documents\dades\programacio\eSignature-ws-api/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
+                      <wsdl>C:\Users\fbosch\Documents\dades\programacio\esignature-ws-api/src/main/resources/wsdl/esignatureValidation.wsdl</wsdl>
                       <packagenames>
-                        <packagename>org.fundaciobit.esginature.ws.api.v1</packagename>
+                        <packagename>org.fundaciobit.pluginsib.validatesignature.esginature.ws</packagename>
                       </packagenames>
                     </wsdlOption>
                   </wsdlOptions>

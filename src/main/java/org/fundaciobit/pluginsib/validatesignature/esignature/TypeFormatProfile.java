@@ -1,0 +1,26 @@
+package org.fundaciobit.pluginsib.validatesignature.esignature;
+
+public class TypeFormatProfile {
+
+   String type;
+   String format;
+   String profile;
+   
+  public TypeFormatProfile(String type, String format, String profile) {
+    super();
+    this.type = type;
+    this.format = format;
+    this.profile = profile;
+  }   
+  
+  public void setType(String type) {
+    this.type=type; 
+  }
+  public void setFormat(String format) {
+    this.format=format;
+  }
+  public void setProfile(String profile) {
+    this.profile=profile;
+  }
+  
+}
